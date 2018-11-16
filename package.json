@@ -1,0 +1,23 @@
+{
+  "name": "TreeFileCreator",
+  "version": "1.0.0",
+  "description": "Parse RAW data from survey data collector in order to be used in CAD and excell",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncruz034/TreeFileCreator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ncruz034/TreeFileCreator/issues"
+  },
+  "homepage": "https://github.com/ncruz034/TreeFileCreator#readme",
+  "devDependencies": {
+    "electron": "3.0.9"
+  }
+}
