@@ -1,0 +1,616 @@
+{
+"species" : [
+ {
+  "common":"ACACIA",
+ "specie":"Acacia auriculiformis"
+ },
+ {
+  "common":"AFRICAN TULIP TREE",
+  "specie":"Spathodea campanulata"
+ },
+ {
+  "common":"ALMOND TREE",
+  "specie":"Prunus dulcis"
+ },
+ {
+  "common":"ARBORVITAE",
+  "specie":"Thuja occidentalis"
+ },
+ {
+  "common":"AVOCADO",
+  "specie":"Persea americana"
+ },
+ {
+  "common":"BAMBOO",
+  "specie":"Phyllostachys spp."
+ },
+ {
+  "common":"BANANA",
+  "specie":"Musa spp."
+ },
+ {
+  "common":"BANYAN",
+  "specie":"Ficus benjamina"
+ },
+ {
+  "common":"RED BAY",
+  "specie":"Persea borbonia"
+ },
+ {
+  "common":"BAY RUM TREE",
+  "specie":"Pimenta racemosa"
+ },
+ {
+  "common":"SWEET BAY",
+  "specie":"Laurus nobilis"
+ },
+ {
+  "common":"BISCHOFIA",
+  "specie":"Bischofia javanica"
+ },
+ {
+  "common":"BLACK OLIVE",
+  "specie":"Bucida buceras"
+ },
+ {
+  "common":"BLOLLY",
+  "specie":"Pisonia discolor"
+ },
+ {
+  "common":"BOTTLE BRUSH",
+  "specie":"Callistemon viminallis"
+ },
+ {
+  "common":"BRAZILIAN BEAUTYLEAF",
+  "specie":"Calophyllum brasiliense"
+ },
+ {
+  "common":"BRAZILIAN PEPPER",
+  "specie":"Schinus terebinthifolius"
+ },
+ {
+  "common":"BUTTONWOOD",
+  "specie":"Conocarpus erectus"
+ },
+ {
+  "common":"SILVER BUTTONWOOD",
+  "specie":"Conocarpus erectus"
+ },
+ {
+  "common":"CARAMBOLA",
+  "specie":"Averrhoa carambola"
+ },
+ {
+  "common":"CHINABERRY",
+  "specie":"Melia azedarach"
+ },
+ {
+  "common":"COCO PLUM",
+  "specie":"Chrysobalanus icaco"
+ },
+ {
+  "common":"COPPER POD",
+  "specie":"Peltophorum pterocarpum"
+ },
+ {
+  "common":"CORN PLANT",
+  "specie":"Dracaena fragrans"
+ },
+ {
+  "common":"CRAPE MYRTLE",
+  "specie":"Lagerstroemia speciosa"
+ },
+ {
+  "common":"CYPRESS",
+  "specie":"Taxodium distichum"
+ },
+ {
+  "common":"ITALIAN CYPRESS",
+  "specie":"Cupressus sempervirens"
+ },
+ {
+  "common":"DAHOON HOLLY",
+  "specie":"Ilex cassine"
+ },
+ {
+  "common":"JAMAICAN DOGWOOD",
+  "specie":"Piscidia piscipula"
+ },
+ {
+  "common":"DRAGON TREE",
+  "specie":"Dracaena draco"
+ },
+ {
+  "common":"EAR TREE",
+  "specie":"Enterolobium cyclocarpum"
+ },
+ {
+  "common":"TORELL'S EUCALYPTUS",
+  "specie":"Corymbia torelliana"
+ },
+ {
+  "common":"FICUS",
+  "specie":"Ficus spp."
+ },
+ {
+  "common":"STRANGLER FIG",
+  "specie":"Ficus aurea"
+ },
+ {
+  "common":"FLORIDA FIDDLEWOOD",
+  "specie":"Citharexylum spinosum"
+ },
+ {
+  "common":"BRAZILIAN PEPPER",
+  "specie":"Schinus terebinthifolius"
+ },
+ {
+  "common":"FRANGIPANI",
+  "specie":"Plumeria acuminata"
+ },
+ {
+  "common":"GOLDEN RAIN",
+  "specie":"Koelreuteria formosana"
+ },
+ {
+  "common":"GOLDEN SHOWER",
+  "specie":"Cassia fistula"
+ },
+ {
+  "common":"GRAPEFRUIT TREE",
+  "specie":"Citrus x paradisi"
+ },
+ {
+  "common":"GUAVA",
+  "specie":"Psidium littorale"
+ },
+ {
+  "common":"GUIANA CHESTNUT",
+  "specie":"Pachira aquatica"
+ },
+ {
+  "common":"GUMBO LIMBO",
+  "specie":"Bursera simaruba"
+ },
+ {
+  "common":"HONG KONG ORCHID",
+  "specie":"Bauhinia blakeana"
+ },
+ {
+  "common":"IRON WOOD",
+  "specie":"Krugiodendrum ferreum"
+ },
+ {
+  "common":"JACARANDA",
+  "specie":"Jacaranda acutifolia"
+ },
+ {
+  "common":"JAVA PLUM",
+  "specie":"Syzygium cumini"
+ },
+ {
+  "common":"LAUREL",
+  "specie":"Laurus nobilis"
+ },
+ {
+  "common":"CHERRY LAUREL",
+  "specie":"Prunus laurocerasus"
+ },
+ {
+  "common":"LEMON TREE",
+  "specie":"Citrus x limon"
+ },
+ {
+  "common":"LIGNUM VITAE",
+  "specie":"Guaiacum sanctum"
+ },
+ {
+  "common":"LIME TREE",
+  "specie":"Citrus aurantifolia"
+ },
+ {
+  "common":"LOQUAT",
+  "specie":"Eriobotrya japonica"
+ },
+ {
+  "common":"MAGNOLIA",
+  "specie":"Magnolia grandiflora"
+ },
+ {
+  "common":"MAHOE",
+  "specie":"Hibiscus tileaceus"
+ },
+ {
+  "common":"MAHOGANY",
+  "specie":"Swietenia mahagoni"
+ },
+ {
+  "common":"MANGO",
+  "specie":"Mangifera indica"
+ },
+ {
+  "common":"BLACK MANGROVE",
+  "specie":"Avicennia germinans"
+ },
+ {
+  "common":"RED MANGROVE",
+  "specie":"Rhizophora mangle"
+ },
+ {
+  "common":"WHITE MANGROVE",
+  "specie":"Laguncularia racemosa"
+ },
+ {
+  "common":"MANILKARA",
+  "specie":"Manilkara roxburghiana"
+ },
+ {
+  "common":"RED MAPLE",
+  "specie":"Acer rubrum"
+ },
+ {
+  "common":"MARLBERRY",
+  "specie":"Ardisia escallonioides"
+ },
+ {
+  "common":"MIMOSA",
+  "specie":"Albizia julibrissin"
+ },
+ {
+  "common":"LAUREL OAK",
+  "specie":"Quercus laurifolia"
+ },
+ {
+  "common":"LIVE OAK",
+  "specie":"Quercus virginiana"
+ },
+ {
+  "common":"SILK OAK",
+  "specie":"Grevillea robusta"
+ },
+ {
+  "common":"ORANGE GEIGER",
+  "specie":"Cordia sebestena"
+ },
+ {
+  "common":"ORANGE TREE",
+  "specie":"Citrus sinensis"
+ },
+ {
+  "common":"ALEXANDER PALM",
+  "specie":"Ptychosperma elegans"
+ },
+ {
+  "common":"ARECA PALM",
+  "specie":"Chrysalidocarpus lutescens"
+ },
+ {
+  "common":"BAMBOO PALM",
+  "specie":"Chamaedorea seifrizii"
+ },
+ {
+  "common":"BISMARCK PALM",
+  "specie":"Bismarckia nobilis"
+ },
+ {
+  "common":"BOTTLE PALM",
+  "specie":"Hyophorbe lagenicaulis"
+ },
+ {
+  "common":"CABBAGE PALM",
+  "specie":"Sabal palmetto"
+ },
+ {
+  "common":"CHINESE FAN PALM",
+  "specie":"Livistona chinensis"
+ },
+ {
+  "common":"CHRISTMAS PALM",
+  "specie":"Veitchia merrillii"
+ },
+ {
+  "common":"COCONUT PALM",
+  "specie":"Cocos nucifera"
+ },
+ {
+  "common":"DATE PALM",
+  "specie":"Phoenix spp"
+ },
+ {
+  "common":" EUROPEAN FAN PALM",
+  "specie":"Podocarpus gracilior"
+ },
+ {
+  "common":"FISHTAIL PALM",
+  "specie":"Caryota mitis"
+ },
+ {
+  "common":"FOXTAIL PALM",
+  "specie":"Wodyetia bifurcata"
+ },
+ {
+  "common":"DATE PALM",
+  "specie":"Phoenix spp"
+ },
+ {
+  "common":"JELLY PALM",
+  "specie":"Butia capitata"
+ },
+ {
+  "common":"MACARTHUR PALM",
+  "specie":"Ptychosperma macarthurii"
+ },
+ {
+  "common":"MANILA PALM",
+  "specie":"Veitchia merrillii"
+ },
+ {
+  "common":"PAUROTIS PALM",
+  "specie":"Acoelorrhaphe wrightii"
+ },
+ {
+  "common":"PINDO PALM",
+  "specie":"Butia capitata"
+ },
+ {
+  "common":"DATE PALM",
+  "specie":"Phoenix spp"
+ },
+ {
+  "common":"PONYTAIL PALM",
+  "specie":"Beaucarnea recurvata"
+ },
+ {
+  "common":"PRINCESS PALM",
+  "specie":"Dictyosperma album"
+ },
+ {
+  "common":"PYGMY DATE PALM",
+  "specie":"Phoenix roebelenii"
+ },
+ {
+  "common":"QUEEN PALM",
+  "specie":"Arecastrum romanzoffianum"
+ },
+ {
+  "common":"SENEGAL DATE PALM",
+  "specie":"Phoenix reclinata"
+ },
+ {
+  "common":"ROYAL PALM",
+  "specie":"Roystonia elata"
+ },
+ {
+  "common":"SAGO PALM",
+  "specie":"Cycas circinalis"
+ },
+ {
+  "common":"SCREW PALM",
+  "specie":"Pandanus spiralis"
+ },
+ {
+  "common":"SOLITAIRE PALM",
+  "specie":"Ptychosperma elegans"
+ },
+ {
+  "common":"SPINDLE PALM",
+  "specie":"Hyophorbe verschaffeltii"
+ },
+ {
+  "common":"THATCH PALM",
+  "specie":"Thrinax morrisii"
+ },
+ {
+  "common":"TRAVELER'S PALM",
+  "specie":"Ravenala madagascariensis"
+ },
+ {
+  "common":"WASHINGTONIA PALM",
+  "specie":"Washingtonia robusta"
+ },
+ {
+  "common":"SAW PALMETTO",
+  "specie":"Serenoa repens"
+ },
+ {
+  "common":"PARADISE TREE",
+  "specie":"Simaruba glauca"
+ },
+ {
+  "common":"PIGEON PLUM",
+  "specie":"Coccoloba diversifolia"
+ },
+ {
+  "common":"AUSTRALIAN PINE",
+  "specie":"Casuarina spp."
+ },
+ {
+  "common":"SLASH PINE",
+  "specie":"Pinus elliottii"
+ },
+ {
+  "common":"NORFOLK ISLAND PINE",
+  "specie":"Araucaria heterophylla"
+ },
+ {
+  "common":"SCREW PINE",
+  "specie":"Pandanus spp."
+ },
+ {
+  "common":"SLASH PINE",
+  "specie":"Pinus elliottii"
+ },
+ {
+  "common":"PITCH APPLE",
+  "specie":"Clusia rosea"
+ },
+ {
+  "common":"PITCH APPLE",
+  "specie":"Clusia rosea"
+ },
+ {
+  "common":"PODOCARPUS",
+  "specie":"Podocarpus spp."
+ },
+ {
+  "common":"ROYAL POINCIANA",
+  "specie":"Delonix regia"
+ },
+ {
+  "common":"YELLOW POINCIANA",
+  "specie":"Peltophorum pterocarpum"
+ },
+ {
+  "common":"POISON WOOD",
+  "specie":"Metopium toxiferum"
+ },
+ {
+  "common":"PONGAM",
+  "specie":"Pongamia pinnata"
+ },
+ {
+  "common":"FLORIDA ROSEWOOD",
+  "specie":"Dalbergia sissoo"
+ },
+ {
+  "common":"PANAMA RUBBER TREE",
+  "specie":"Castilla elastica"
+ },
+ {
+  "common":"PARA RUBBER TREE",
+  "specie":"Hevea brasiliensis"
+ },
+ {
+  "common":"SAPODILLA",
+  "specie":"Manilkara zapota"
+ },
+ {
+  "common":"SATIN LEAF",
+  "specie":"Chrysophyllum oliviforme"
+ },
+ {
+  "common":"SAUSAGE TREE",
+  "specie":"Kigelia africana"
+ },
+ {
+  "common":"SAW PALMETTO",
+  "specie":"Serenoa repens"
+ },
+ {
+  "common":"SCHEFFLERA",
+  "specie":"Schefflera actinophylla"
+ },
+ {
+  "common":"SEAGRAPE",
+  "specie":"Coccoloba uvifera"
+ },
+ {
+  "common":"SOAPBERRY",
+  "specie":"Sapindus saponaria"
+ },
+ {
+  "common":"SOLDIERWOOD",
+  "specie":"Colubrina arborescens"
+ },
+ {
+  "common":"WAX LEAF PRIVET",
+  "specie":"Ligustrum japonicum"
+ },
+ {
+  "common":"SPANISH  STOPPER",
+  "specie":"Eugenia foetida"
+ },
+ {
+  "common":"STARBURST",
+  "specie":"Clerodendron quadriloculare"
+ },
+ {
+  "common":"STRANGLER FIG",
+  "specie":"Ficus aurea"
+ },
+ {
+  "common":"SWEET GUM",
+  "specie":"Liquidambar styraciflua"
+ },
+ {
+  "common":"TAMARIND",
+  "specie":"Tamarindus indica"
+ },
+ {
+  "common":"WILD TAMARIND",
+  "specie":"Lysiloma bahamensis"
+ },
+ {
+  "common":"TANGERINE TREE",
+  "specie":"Citrus reticulata"
+ },
+ {
+  "common":"PINK TRUMPET",
+  "specie":"Tabebuia heterophylla"
+ },
+ {
+  "common":"SILVER TRUMPET",
+  "specie":"Tabebuia caraiba"
+ },
+ {
+  "common":"SCHEFFLERA",
+  "specie":"Schefflera actinophylla"
+ },
+ {
+  "common":"UNKNOWN 1",
+  "specie":"UNKNOWN 1"
+ },
+ {
+  "common":"UNKNOWN 2",
+  "specie":"UNKNOWN 2"
+ },
+ {
+  "common":"UNKNOWN 3",
+  "specie":"UNKNOWN 3"
+ },
+ {
+  "common":"UNKNOWN 4",
+  "specie":"UNKNOWN 4"
+ },
+ {
+  "common":"UNKNOWN 5",
+  "specie":"UNKNOWN 5"
+ },
+ {
+  "common":"UNKNOWN 6",
+  "specie":"UNKNOWN 6"
+ },
+ {
+  "common":"UNKNOWN 7",
+  "specie":"UNKNOWN 7"
+ },
+ {
+  "common":"UNKNOWN 8",
+  "specie":"UNKNOWN 8"
+ },
+ {
+  "common":"UNKNOWN 9",
+  "specie":"UNKNOWN 9"
+ },
+ {
+  "common":"WAX LEAF PRIVET",
+  "specie":"Ligustrum japonicum"
+ },
+ {
+  "common":"WHITE STOPPER",
+  "specie":"Eugenia axillaris"
+ },
+ {
+  "common":"WOMAN'S TONGUE",
+  "specie":"Albizia lebbeck"
+ },
+ {
+  "common":"YELLOW TAB",
+  "specie":"Tabebuia caraiba"
+ },
+ {
+  "common":"YEW",
+  "specie":"Taxus spp."
+ }
+]
+}
