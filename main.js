@@ -3,20 +3,20 @@ const path = require('path')
 const url = require('url')
 const shell = require('electron').shell
 const ipc = require('electron').ipcMain
-
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({ width: 800, height: 600 , title:'TFC', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
 
   // and load the index.html of the app.
   win.loadFile('src/index.html')
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -31,9 +31,9 @@ function createWindow () {
           label: 'Menu',
           submenu: [
             {
-                label: 'Coin Market Cap',
+                label: 'shiskin.com',
                 click(){
-                    shell.openExternal('http://coinmarketcap.com')
+                    shell.openExternal('http://shiskin.com')
                 }
             },
             {type: 'separator'},

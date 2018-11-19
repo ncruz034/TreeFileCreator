@@ -1,6 +1,6 @@
 // -- Imports
 
-class Parser {
+export class Parser {
 
   constructor(){}
 
@@ -12,18 +12,12 @@ isEmpty(items) {
     return items.length == 0; 
 } 
 
-generateFiles(rawData, species){
+
+generateFiles(rawData, speciesJSON){
+  this.speciesJSON = speciesJSON
 //let rawData = [];
 let tempDataArr=[];
 let finalStack = new Stack();
-
-// -- Read file (This is a temporaty hack ).
-//let otherData = fs.readFileSync('/code/electron/TreeFileCreator/assets/js/TEST.RAW', 'utf-8').split(/\r?\n/).forEach(function(line){
-/*
-let otherData = fs.readFileSync(path, 'utf-8').split(/\r?\n/).forEach(function(line){
-  rawData.push(line);
-});
-*/
 
 // -- Load all the data into a stack to flip the original file top to bottom
 // -- so that parsing the file can be easely acomplished.
@@ -72,18 +66,20 @@ get fileForExcell(){
 /*
 =========================================================================================
 */
+writeFiles(){
+  // -- Writes the file to be loaded into CAD.
+  let cadFile = fs.createWriteStream('fileForCad.txt');
+  cadFile.on('error', function(err) { if(err) throw err; });
+  fileForCad.forEach(function(v) { file.write(v); });
+  cadFile.end();
 
-// -- Writes the file to be loaded into CAD.
-var file = fs.createWriteStream('fileForCad.txt');
-file.on('error', function(err) { if(err) throw err; });
-fileForCad.forEach(function(v) { file.write(v); });
-file.end();
+  // -- Writes the file to be used in Excell.
+  let excelFile = fs.createWriteStream('fileForExcell.txt');
+  excelFile.on('error', function(err) { if(err) throw err; });
+  fileForExcell.forEach(function(v) { file.write(v); });
+  excelFile.end();
+}
 
-// -- Writes the file to be used in Excell.
-var file = fs.createWriteStream('fileForExcell.txt');
-file.on('error', function(err) { if(err) throw err; });
-fileForExcell.forEach(function(v) { file.write(v); });
-file.end();
 
   // -- Formats all the information that will be used later to 
   // -- create the required files.
@@ -128,7 +124,7 @@ file.end();
   // -- Reads data from the species.json file to match the common and scientific name
  findSpecie(common){
     let theSpecie = "Unknown";
-    TreeData.species.forEach(function(item){
+    speciesJSON.species.forEach(function(item){
         if(common === item.common){
           theSpecie = item.specie;
         }
