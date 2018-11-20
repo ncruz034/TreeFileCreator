@@ -1,14 +1,12 @@
 
-//const { app, BrowserWindow, Menu} = require('electron')
-var fs = require('fs');
+const fs = require('fs');
 const electron = require('electron')
 const path = require('path')
 const species = require('../assets/js/species.json');
-//const Stack = require('/code/electron/TreeFileCreator/assets/js/stack');
-//import parser from '/code/TFC/TreeFileCreator/assets/js/parser';
+//const Parser = require('./parser.js')
 
+/*
 class Parser {
-
   constructor(rawData, speciesJSON,filePath){
     this.filePath = filePath;
     this.rawData = rawData;
@@ -24,8 +22,6 @@ class Parser {
   } 
 
   generateFiles(){
-    //this.speciesJSON = speciesJSON
-  //let rawData = [];
   let tempDataArr=[];
   let finalStack = []; //new Stack();
 
@@ -74,9 +70,7 @@ this.writeFiles(fileForCad,fileForExcell);
 fileForExcell(){
   return fileForExcell;
 }
-/*
-=========================================================================================
-*/
+
 writeFiles(fileForCad,fileForExcell){
   // -- Writes the file to be loaded into CAD.
   let path = this.filePath.substring(0,this.filePath.length-4);
@@ -155,7 +149,9 @@ writeFiles(fileForCad,fileForExcell){
     return tempValue;
   }
 }
+*/
 
+//=========================================================================================
 const BrowserWindow = electron.remote.BrowserWindow
 const remote = electron.remote
 const ipc = electron.ipcRenderer
