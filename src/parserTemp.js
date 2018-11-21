@@ -1,6 +1,6 @@
 class Parser {
-    constructor(rawData, speciesJSON,filePath){
-      this.filePath = filePath;
+    constructor(rawData, speciesJSON, filePaths){
+      this.filePaths = filePaths;
       this.rawData = rawData;
       this.speciesJSON = speciesJSON;
     }
@@ -12,7 +12,14 @@ class Parser {
     isEmpty(items) { 
         return items.length == 0; 
     } 
-  
+
+    joinFiles(filePaths){
+      let theFiles = filePaths.forEach(function(file){
+        generateFiles(file);
+        appendToMainFile()
+      })
+    }
+    
     generateFiles(){
     let tempDataArr=[];
     let finalStack = []; //new Stack();
@@ -56,7 +63,7 @@ class Parser {
   let flatData = this.createFlatData(finalStack);
   let fileForExcell = this.createFileForExcell(flatData);
   let fileForCad = this.createCadFile(flatData);
-  this.writeFiles(fileForCad,fileForExcell);
+  this.writeFiles(fileForCad, fileForExcell, flatData);
   }
   
   fileForExcell(){
@@ -65,16 +72,23 @@ class Parser {
   /*
   =========================================================================================
   */
-  writeFiles(fileForCad,fileForExcell){
+  writeFiles(fileForCad,fileForExcell, flatData){
+     // -- Writes all raw data to a file.
+     let path = this.filePath.substring(0,this.filePath.length-4);
+     let rawFile = fs.createWriteStream(`${path}-RAW.txt`);
+     rawFile.on('error', function(err) { if(err) throw err; });
+     flatData.forEach(function(v) { rawFile.write(v); });
+     rawFile.end();
+
     // -- Writes the file to be loaded into CAD.
     let path = this.filePath.substring(0,this.filePath.length-4);
-    let cadFile = fs.createWriteStream(`${path}-fileForCad.txt`);
+    let cadFile = fs.createWriteStream(`${path}-CAD.txt`);
     cadFile.on('error', function(err) { if(err) throw err; });
     fileForCad.forEach(function(v) { cadFile.write(v); });
     cadFile.end();
   
     // -- Writes the file to be used in Excell.
-    let excelFile = fs.createWriteStream(`${path}-fileForExcell.txt`);
+    let excelFile = fs.createWriteStream(`${path}-EXL.txt`);
     excelFile.on('error', function(err) { if(err) throw err; });
     fileForExcell.forEach(function(v) { excelFile.write(v); });
     excelFile.end();

@@ -1,6 +1,6 @@
 class Parser {
-    constructor(rawData, speciesJSON, filePaths){
-      this.filePaths = filePaths;
+    constructor(rawData, speciesJSON,filePath){
+      this.filePath = filePath;
       this.rawData = rawData;
       this.speciesJSON = speciesJSON;
     }
@@ -12,14 +12,7 @@ class Parser {
     isEmpty(items) { 
         return items.length == 0; 
     } 
-
-    joinFiles(filePaths){
-      let theFiles = filePaths.forEach(function(file){
-        generateFiles(file);
-        appendToMainFile()
-      })
-    }
-    
+  
     generateFiles(){
     let tempDataArr=[];
     let finalStack = []; //new Stack();
@@ -122,10 +115,11 @@ class Parser {
         let specie = this.findSpecie(tempArr[4]);
         finalArr.push(`${i+1},${tempArr[4]},${specie},${tempArr[5]},${tempArr[6]},${tempArr[7]}`)
       }
-  
+      /*
       for(let i = 0; i < finalArr.length; i++){
       console.log(finalArr[i]);
       }
+      */
       return finalArr;
     }
   
