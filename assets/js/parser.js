@@ -74,7 +74,7 @@ writeFiles(){
   cadFile.end();
 
   // -- Writes the file to be used in Excell.
-  let excelFile = fs.createWriteStream('fileForExcell.txt');
+  let excelFile = fs.createWriteStream('fileForExcell.csv');
   excelFile.on('error', function(err) { if(err) throw err; });
   fileForExcell.forEach(function(v) { file.write(v); });
   excelFile.end();

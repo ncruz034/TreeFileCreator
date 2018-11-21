@@ -4,85 +4,61 @@ class Parser {
       this.rawData = rawData;
       this.speciesJSON = speciesJSON;
     }
-  
     peek(items) { 
         return items[this.items.length - 1]; 
     } 
-  
     isEmpty(items) { 
         return items.length == 0; 
     } 
-  
     generateFiles(){
-    let tempDataArr=[];
-    let finalStack = []; //new Stack();
-  
-    // -- Load all the data into a stack to flip the original file top to bottom
-    // -- so that parsing the file can be easely acomplished.
-    let tempStack =[];// new Stack();
-    for(let i = 0; i < this.rawData.length; i++){
-      tempStack.push(this.rawData[i]);
-    }
-  
-    // -- This is the first pass at cleanning the original file.
-    while(!(tempStack.length == 0)){
-      if(tempStack.pop().includes("--TREE")){
-        tempStack.pop(); // -- Drops additional attribute.
-        tempStack.pop(); // -- Drops additional attribute.
-        for(let j = 0; j < 4; j++){
-          if(tempStack[tempStack.length - 1].includes("FC,")){
-            tempStack.pop(); //  -- Drops attribute containing name of tree
-          }
-          let value = tempStack.pop();
-          if(value.includes("SP,")){
-            tempDataArr.push(this.parseValue(value));
-          }else{
-            tempDataArr.push(value.substring(value.lastIndexOf("TV")+2));
+      let tempDataArr=[];
+      let finalStack = []; //new Stack();
+      // -- This is the first pass at cleanning the original file.
+      while(!(this.rawData.length == 0)){
+        if(this.rawData.pop().includes("--TREE")){
+          this.rawData.pop(); // -- Drops additional attribute.
+          this.rawData.pop(); // -- Drops additional attribute.
+          for(let j = 0; j < 4; j++){
+            if(this.rawData[this.rawData.length - 1].includes("FC,")){
+              this.rawData.pop(); //  -- Drops attribute containing name of tree
+            }
+            let value = this.rawData.pop();
+            if(value.includes("SP,")){
+              tempDataArr.push(this.parseValue(value));
+            }else{
+              tempDataArr.push(value.substring(value.lastIndexOf("TV")+2));
+            }
           }
         }
       }
-    }
-  
-    // -- Load the cleaner file into a stack to flip the data so that it comes out
-    // -- in the correct order.
-    for(let element of tempDataArr){
-      finalStack.push(element)
-    }
-  
-  // -- Two files are necesary to accomplish the task, The first one will be
-  // -- loaded into CAD, and the second one will be used to create an Excell
-  // -- table. This code call functions that will clean the data and format
-  // -- the output accordingly.
+      // -- Load the cleaner file into a stack to flip the data so that it comes out
+      // -- in the correct order.
+      for(let element of tempDataArr){
+        finalStack.push(element)
+      }
+  // -- After creating the flatData file it is used to create two other files;
+  // -- they get loaded into CAD, and the second one will be used to create an Excell
   let flatData = this.createFlatData(finalStack);
-  let fileForExcell = this.createFileForExcell(flatData);
-  let fileForCad = this.createCadFile(flatData);
-  this.writeFiles(fileForCad,fileForExcell);
+  let files=[];
+  files = this.createFiles(flatData);
+  this.writeFiles(files);
   }
-  
   fileForExcell(){
     return fileForExcell;
   }
-  /*
-  =========================================================================================
-  */
-  writeFiles(fileForCad,fileForExcell){
-    // -- Writes the file to be loaded into CAD.
-    let path = this.filePath.substring(0,this.filePath.length-4);
-    let cadFile = fs.createWriteStream(`${path}-fileForCad.txt`);
-    cadFile.on('error', function(err) { if(err) throw err; });
-    fileForCad.forEach(function(v) { cadFile.write(v); });
-    cadFile.end();
-  
-    // -- Writes the file to be used in Excell.
-    let excelFile = fs.createWriteStream(`${path}-fileForExcell.txt`);
-    excelFile.on('error', function(err) { if(err) throw err; });
-    fileForExcell.forEach(function(v) { excelFile.write(v); });
-    excelFile.end();
+  //  =========================================================================================
+  writeFiles(theFiles){
+    let extensions = ['.csv','.txt'];
+    for(let i = 0; i < theFiles.length; i++){
+      // -- Writes the file to be loaded into CAD.
+      let path = this.filePath.substring(0,this.filePath.length-4);
+      let finalFile = fs.createWriteStream(`${path}-Trees${extensions[i]}`);
+      finalFile.on('error', function(err) { if(err) throw err; });
+      theFiles[i].forEach(function(v) { finalFile.write(v); });
+      finalFile.end();
+    }
   }
-  
-  
-    // -- Formats all the information that will be used later to 
-    // -- create the required files.
+    // -- Formats all the information that will be used later to create the required files.
     createFlatData(stackValues){
       let finalArr = [];
       while(!(stackValues.length == 0)){
@@ -90,39 +66,19 @@ class Parser {
       }
       return finalArr;
     }
-  
-    // -- Format the individual strings and returns an array with the data
-    // -- to be loaded in CAD.
-    createCadFile(values){
-      // format --> PN, N, E, El, TN
+    // -- Create final files (one .txt file for CAD, and one .csv file for excel);
+    createFiles(values){
       let tempArr = [];
-      let finalArr = [];
+      let exlArr = [];
+      let cadArr = [];
+      exlArr.push(`TREE No.,COMMON NAME,SPECIE,TRUNK,HEIGHT,CANOPY\n`);
       for(let i = 0; i < values.length; i++){
         tempArr = values[i].split(',');
-        finalArr.push(`${tempArr[0]},${tempArr[1]},${tempArr[2]},${tempArr[3]},${i+1}\n`)
-      }
-      return finalArr;
+        exlArr.push(`${i+1},${tempArr[4]},${this.findSpecie(tempArr[4])},${tempArr[5]},${tempArr[6]},${tempArr[7]}`);
+        cadArr.push(`${tempArr[0]},${tempArr[1]},${tempArr[2]},${tempArr[3]},${i+1}\n`)
     }
-  
-    // -- Format the individual strings and returns an array with the data
-    // -- to be loaded in Excell
-    createFileForExcell(values){
-      let tempArr = [];
-      let finalArr = [];
-      finalArr.push(`TREE No.,COMMON NAME,SPECIE,TRUNK,HEIGHT,CANOPY\n`);
-      for(let i = 0; i < values.length; i++){
-        tempArr = values[i].split(',');
-        let specie = this.findSpecie(tempArr[4]);
-        finalArr.push(`${i+1},${tempArr[4]},${specie},${tempArr[5]},${tempArr[6]},${tempArr[7]}`)
-      }
-      /*
-      for(let i = 0; i < finalArr.length; i++){
-      console.log(finalArr[i]);
-      }
-      */
-      return finalArr;
-    }
-  
+    return [exlArr,cadArr];
+  }
     // -- Reads data from the species.json file to match the common and scientific name
    findSpecie(common){
       let theSpecie = "Unknown";
@@ -133,8 +89,7 @@ class Parser {
       });
         return theSpecie;
     }
-  
-    // -- Cleans unnecesary characters from the original file
+    // -- Cleans unnecesary characters from the original .RAW file
      parseValue(value){
       let tempValue = value.replace("SP,PN","");
       tempValue = tempValue.replace(",N ",",");
