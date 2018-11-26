@@ -27,7 +27,7 @@
     content : '+';
     color: #6def9a;
   }
-  .dropzone-list > ul > li {
+  .dropzone-list > ul > li { 
     border: 1px solid black;
     padding-bottom: 5px;
     padding-left: 10px;
@@ -39,3 +39,15 @@
   .body{
     background-color: #31343a;
   }
+  .buttons{
+    background-color: #31343a;
+    width:64px;
+    height:64px;
+    border: 1px solid black;
+  }
+  .button {
+    background-color: #31343a;
+    width:64px;
+    height:64px;
+    cursor: pointer;
+}
