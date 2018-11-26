@@ -39,10 +39,25 @@
   .body{
     background-color: #31343a;
   }
-  .buttons{
+  .buttonSingleFile{
     background-color: #31343a;
+    background-image: url('../icons/singleFile.png');
     width:64px;
-    height:64px;
+    height:66px;
+    border: 1px solid black;
+  }
+  .buttonTwoToOneFile{
+    background-color: #31343a;
+    background-image: url('../icons/twoFilestoOne.png');
+    width:64px;
+    height:66px;
+    border: 1px solid black;
+  }
+  .buttonSecondFileOnly{
+    background-color: #31343a;
+    background-image: url('../icons/secondFileOnly.png');
+    width:64px;
+    height:66px;
     border: 1px solid black;
   }
   .button {
@@ -50,4 +65,5 @@
     width:64px;
     height:64px;
     cursor: pointer;
+
 }

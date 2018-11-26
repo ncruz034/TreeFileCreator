@@ -7,8 +7,8 @@ const BrowserWindow = electron.remote.BrowserWindow
 const remote = electron.remote
 const ipc = electron.ipcRenderer
 
-let filePath = '';
-
+let filePaths = [];
+//let lastPointNumber = 0;
 //const BrowserWindow = electron.remote.BrowserWindow
 /*
 const generateBtn = document.getElementById('generateBtn')
@@ -19,15 +19,39 @@ generateBtn.addEventListener('click', function(){
     console.log(filePath)
 })
 */
+const generateSingleFileBtn = document.getElementById('runSingleFile')
+ 
+generateSingleFileBtn.addEventListener('click', function(){
+  if(filePaths.length > 0)
+    parseSingleFile(filePaths[0])
+})
+
+
+const generateMultipleFilesToOneBtn = document.getElementById('runMultipleFilesToOne')
+ 
+generateMultipleFilesToOneBtn.addEventListener('click', function(){
+  if(filePaths.length > 0)
+    parseMultipleFilesToOne(filePaths)  
+})
+
+
+const generateSecondFileOnly = document.getElementById('runSecondFileOnly')
+ 
+generateSecondFileOnly.addEventListener('click', function(){
+  if(filePaths.length > 0)
+    parseSecondFileOnly(filePaths)  
+})
+
 document.addEventListener('drop', function (e) {
     e.preventDefault();
     e.stopPropagation();
-      let filePath=[];
+    //filePaths=[];
     for (let f of e.dataTransfer.files) {
-        filePath.push(f.path)
+        filePaths.push(f.path)
         console.log('File(s) you dragged here: ', f.path)
     }
-    parseFiles(filePath);
+    e.dataTransfer.items.clear();
+    console.log(filePaths);
   });
 
   document.addEventListener('dragover', function (e) {
@@ -36,14 +60,10 @@ document.addEventListener('drop', function (e) {
   });
 
   // -- The function gets an array of file paths
-  function parseFiles(filePaths){
+  function parseMultipleFilesToOne(paths){
     let files = [];
 
-    //for(let i = 1; i< filePaths.length; i++){
-      //fs.appendFileSync(filePaths[0],filePaths[i]);
-    //};
-   
-    for(let path of filePaths){
+    for(let path of paths){
       let rawData = [];
       // -- Read raw points file
        let otherData = fs.readFileSync(path, 'utf-8').split(/\r?\n/).forEach(function(line){
@@ -56,12 +76,65 @@ document.addEventListener('drop', function (e) {
       console.log(files);
     };
 
-
-    const parser = new Parser(files[0],species,filePaths[0]);
+    const parser = new Parser(files[0],species,paths[0],0);
     parser.generateFiles();
-
-   // return rawData;
+    filePaths = [];
   }
 
 
+  // -- The function gets an array of file paths
+  function parseSingleFile(paths){
+    let files = [];
+    console.log(paths)
+      let rawData = [];
+      // -- Read raw points file
+       let otherData = fs.readFileSync(paths, 'utf-8').split(/\r?\n/).forEach(function(line){rawData.push(line);});
+       files.push(rawData);
+    
+    const parser = new Parser(files[0],species,paths,0);
+    parser.generateFiles();
+    filePaths = [];
+  }
+
+  function parseSecondFileOnly(paths){
+    let files = [];
+    let isTxt = false;
+    let txtPath = '';
+    let lastPointNumber = '';
+
+    for(let path of paths){
+      if(path.includes('.txt')){
+          isTxt = true;
+          txtPath = path;
+      }else{
+        let rawData = [];
+        // -- Read raw points file
+         let otherData = fs.readFileSync(path, 'utf-8').split(/\r?\n/).forEach(function(line){
+           rawData.push(line);});
+          files.push(rawData);
+      }
+    }
+
+    if(isTxt){
+      let txtFile=[]
+      console.log('the path is: ' + txtPath);
+      fs.readFileSync(txtPath, 'utf-8').split(/\r?\n/).forEach(function(line){
+        txtFile.push(line);});
+        console.log(txtFile);
+        lastPointNumber = txtFile[txtFile.length-1].substring(txtFile[txtFile.length-1].lastIndexOf(',')+1);
+   
+        console.log('the last point is: ' + lastPointNumber);
+    }
+
   
+    let finalFiles = [];
+    for(let i = 1; i< files.length; i++){
+      files[0] = files[0].concat(files[i]);
+      console.log(files);
+    };
+
+
+    const parser = new Parser(files[0],species,paths[0],parseInt(lastPointNumber));
+    parser.generateFiles();
+    filePaths = [];
+  }

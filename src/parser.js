@@ -1,8 +1,9 @@
 class Parser {
-    constructor(rawData, speciesJSON,filePath){
+    constructor(rawData, speciesJSON,filePath,lastPointNumber){
       this.filePath = filePath;
       this.rawData = rawData;
       this.speciesJSON = speciesJSON;
+      this.lastPointNumber = lastPointNumber;
     }
     peek(items) { 
         return items[this.items.length - 1]; 
@@ -71,12 +72,15 @@ class Parser {
       let tempArr = [];
       let exlArr = [];
       let cadArr = [];
-      exlArr.push(`TREE No.,COMMON NAME,SPECIE,TRUNK,HEIGHT,CANOPY\n`);
+      exlArr.push(`TREE No.,COMMON,SPECIE,DIA.,HT.,CNPY.\n,NAME, ,IN.,FT.,FT\n`);
+
       for(let i = 0; i < values.length; i++){
         tempArr = values[i].split(',');
-        exlArr.push(`${i+1},${tempArr[4]},${this.findSpecie(tempArr[4])},${tempArr[5]},${tempArr[6]},${tempArr[7]}`);
-        cadArr.push(`${tempArr[0]},${tempArr[1]},${tempArr[2]},${tempArr[3]},${i+1}\n`)
+        exlArr.push(`${this.lastPointNumber + i+1},${tempArr[4]},${this.findSpecie(tempArr[4])},${tempArr[5]},${tempArr[6]},${tempArr[7]}`);
+        cadArr.push(`${tempArr[0]},${tempArr[1]},${tempArr[2]},${tempArr[3]},${this.lastPointNumber + i+1}\n`)
     }
+    // -- Clear the \n (new line) from the last array element.
+    cadArr[cadArr.length-1] = cadArr[cadArr.length-1].substring(0,cadArr[cadArr.length-1].length-1)
     return [exlArr,cadArr];
   }
     // -- Reads data from the species.json file to match the common and scientific name
