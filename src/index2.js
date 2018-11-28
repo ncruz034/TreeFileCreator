@@ -8,39 +8,48 @@ const remote = electron.remote
 const ipc = electron.ipcRenderer
 
 let filePaths = [];
+//let lastPointNumber = 0;
+//const BrowserWindow = electron.remote.BrowserWindow
+/*
+const generateBtn = document.getElementById('generateBtn')
+ 
+generateBtn.addEventListener('click', function(){
+    parser.generateFiles(filePath, species)
+    ipc.send('generate-files', filePath)//document.getElementById('generateBtn').value)
+    console.log(filePath)
+})
+*/
+const generateSingleFileBtn = document.getElementById('runSingleFile')
+generateSingleFileBtn.addEventListener('click', function(){
+  if(filePaths.length > 0)
+    parseSingleFile(filePaths[0])
+})
 
-function containsTxtFilePath(paths){
-  for(let i = 0; i< paths.length; i++){
-    if(paths[i].substring(paths[i].length - 3, paths[i].length) === 'txt'){
-      console.log('We found a .txt file: ' + paths[i]);
-      return true;
-    }
-  }
-  return false;
-}
+
+const generateMultipleFilesToOneBtn = document.getElementById('runMultipleFilesToOne')
+generateMultipleFilesToOneBtn.addEventListener('click', function(){
+  if(filePaths.length > 0)
+    parseMultipleFilesToOne(filePaths)  
+})
+
+
+const generateSecondFileOnly = document.getElementById('runSecondFileOnly') 
+generateSecondFileOnly.addEventListener('click', function(){
+  if(filePaths.length > 0)
+    parseSecondFileOnly(filePaths)  
+})
 
 document.addEventListener('drop', function (e) {
     e.preventDefault();
     e.stopPropagation();
+    //filePaths=[];
     for (let f of e.dataTransfer.files) {
         filePaths.push(f.path)
         console.log('File(s) you dragged here: ', f.path)
     }
-    if(filePaths.length > 1){
-      if(containsTxtFilePath(filePaths)){
-        console.log('Parsing second file only');
-        parseSecondFileOnly(filePaths);
-      }else{
-        parseMultipleFilesToOne(filePaths);
-      }
-    }else{
-      parseSingleFile(filePaths[0]);
-    }
-
     e.dataTransfer.items.clear();
     console.log(filePaths);
   });
-
 
   document.addEventListener('dragover', function (e) {
     e.preventDefault();
@@ -68,6 +77,7 @@ document.addEventListener('drop', function (e) {
     parser.generateFiles();
     filePaths = [];
   }
+
 
   // -- The function gets an array of file paths
   function parseSingleFile(paths){

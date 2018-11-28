@@ -53,7 +53,7 @@ class Parser {
     for(let i = 0; i < theFiles.length; i++){
       // -- Writes the file to be loaded into CAD.
       let path = this.filePath.substring(0,this.filePath.length-4);
-      let finalFile = fs.createWriteStream(`${path}-Trees${extensions[i]}`);
+      let finalFile = fs.createWriteStream(`${path}Trees${extensions[i]}`);
       finalFile.on('error', function(err) { if(err) throw err; });
       theFiles[i].forEach(function(v) { finalFile.write(v); });
       finalFile.end();

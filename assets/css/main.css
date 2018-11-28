@@ -45,6 +45,7 @@
     width:64px;
     height:66px;
     border: 1px solid black;
+    cursor: pointer;
   }
   .buttonTwoToOneFile{
     background-color: #31343a;
@@ -52,6 +53,7 @@
     width:64px;
     height:66px;
     border: 1px solid black;
+    cursor: pointer;
   }
   .buttonSecondFileOnly{
     background-color: #31343a;
@@ -59,6 +61,7 @@
     width:64px;
     height:66px;
     border: 1px solid black;
+    cursor: pointer;
   }
   .button {
     background-color: #31343a;
