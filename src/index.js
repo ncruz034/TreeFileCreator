@@ -1,8 +1,9 @@
 
-const fs = require('fs');
+
 const electron = require('electron')
+const fs = require('fs');
 const path = require('path')
-const species = require('../assets/js/species.json');
+const species = require('../../assets/js/species.json');
 const BrowserWindow = electron.remote.BrowserWindow
 const remote = electron.remote
 const ipc = electron.ipcRenderer

@@ -1,13 +1,21 @@
 const { app, BrowserWindow, Menu } = require('electron')
+
+if(process.env.NODE_ENV !== 'production'){
+    require('electron-reload')(__dirname,{
+
+    })
+}
+
 const path = require('path')
 const url = require('url')
+
 const shell = require('electron').shell
 const ipc = require('electron').ipcMain
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
-
+/*
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600 , title:'TFC', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
@@ -56,7 +64,61 @@ function createWindow () {
   ])
   Menu.setApplicationMenu(menu)
 }
+*/
+function createWindow () {
+    // Create the browser window.
+    win = new BrowserWindow({ width: 800, height: 600 , title:'TFC', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
+  
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, 'src/views/index.html'),
+        protocol: 'file',
+        slashes: true
+    }))
 
+    // and load the index.html of the app.
+    //win.loadFile('src/index.html')
+  
+    // Open the DevTools.
+    win.webContents.openDevTools()
+  
+    // Emitted when the window is closed.
+    win.on('closed', () => {
+      // Dereference the window object, usually you would store windows
+      // in an array if your app supports multi windows, this is the time
+      // when you should delete the corresponding element.
+      win = null
+    })
+  
+    let menu = Menu.buildFromTemplate([
+        {
+            label: 'Menu',
+            submenu: [
+              {
+                  label: 'shiskin.com',
+                  click(){
+                      shell.openExternal('http://shiskin.com')
+                  }
+              },
+              {type: 'separator'},
+                {
+                    label: 'Tree File Creator'
+                  },
+              {
+                  label: 'Project Directory Creator'
+              },
+              {
+                  label: 'Exit',
+                  click(){ 
+                      app.quit()
+                  }
+              }
+            ]
+        },{
+            label:'Help'
+        }
+    ])
+    Menu.setApplicationMenu(menu)
+  }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
