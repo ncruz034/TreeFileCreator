@@ -1,1 +1,70 @@
-<h1>Welcome to Project Directory Creator!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PDC (2.0.0)</title>
+  <!--<link rel="stylesheet" href="../../assets/css/main.css">-->
+  <link rel = "stylesheet" href= "https://bootswatch.com/4/lux/bootstrap.min.css">
+</head>
+<body>
+        <div class="d-block bg-primary txt-black-50 ">Welcome!             
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+</div>
+<div class="d-block ">
+    <div class="card  text-white border-warning bg-info mb-3">
+        <div class="card-header"><h5 class="text-black-50 text-center" >Project Directory Creator</h5></div>
+            <div class="card-body" id="drop" >
+                <form>
+                    <fieldset>
+                        <div class="form-group row d-block">
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputSection">Section Township & Range</label>
+                                <input type="text" class="form-control" placeholder="xxxxxx" id="inputSection">
+                            </div>
+                        </div>
+                        <div class="form-group row d-block">
+                            <div class="form-group">
+                                    <label class="col-form-label" for="inputProjectName">Project Name</label>
+                                    <input type="text" class="form-control" placeholder="project name" id="inputProjectName">
+                            </div>  
+                        </div> 
+                        <div class="form-group row d-block">
+                            <div class="form-group">
+                                    <label class="col-form-label" for="inputPlatName">Plat Name</label>
+                                    <input type="text" class="form-control" placeholder="plat name" id="inputPlatName">
+                            </div>  
+                        </div> 
+                        <div class="form-group row d-block">
+                                <div class="form-group">
+                                        <label class="col-form-label" for="inputOrderNumber">Project Order No.</label>
+                                        <input type="text" class="form-control" placeholder="order number" id="inputOrderNumber">
+                                </div>  
+                            </div> 
+                        <div class="form-group row">
+                        <div class="form-group">
+                        <label for="municipalities">Municipalities</label>
+                        <select class="form-control" id="municipalities">
+                            <option>City of Miami</option>
+                            <option>Coral Gables</option>
+                            <option>Miramar</option>
+                            <option>Pembroke Pines</option>
+                            <option>Hollywood</option>
+                        </select>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        <div class="card-footer bg-transparent border-success">Schwebke-Shiskin & Associates, inc. 2018</div>
+    </div>
+</div>
+
+</body>
+</html>

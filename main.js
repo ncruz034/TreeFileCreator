@@ -49,7 +49,8 @@ function createWindow () {
               {
                   label: 'shiskin.com',
                   click(){
-                      shell.openExternal('http://shiskin.com')
+                      //shell.openExternal('http://shiskin.com')
+                      shell.openItem(url.format({pathname: path.join(__dirname, 'ssa/index.html')}))
                   }
               },
               {type: 'separator'},
@@ -59,7 +60,7 @@ function createWindow () {
                     click(){
                       createTreeFileCreatorWindow();
                     }
-                  },
+                },
               {
                   label: 'Project Directory Creator',
                   accelerator: 'Ctrl+P',
@@ -99,7 +100,7 @@ function createWindow () {
 
   function createTreeFileCreatorWindow () {
     // Create the browser window.
-    tfcWindow = new BrowserWindow({ width: 600, height: 400 , title:'Tree File Creator', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
+    tfcWindow = new BrowserWindow({ width: 800, height: 300 , title:'Tree File Creator', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
     tfcWindow.setMenu(null)
     tfcWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'src/views/treeFileCreator.html'),
@@ -115,7 +116,7 @@ function createWindow () {
 
 function projectDirectoryCreatorWindow () {
     // Create the browser window.
-    pdcWindow = new BrowserWindow({ width: 600, height: 400 , title:'Project Directory Creator', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
+    pdcWindow = new BrowserWindow({ width: 800, height: 600 , title:'Project Directory Creator', icon:path.join(__dirname,'/assets/icons/win/icon.ico')})
     pdcWindow.setMenu(null)
     pdcWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'src/views/projectDirectoryCreator.html'),
